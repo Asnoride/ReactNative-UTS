@@ -9,6 +9,7 @@ import {
   View,
 } from 'react-native';
 import { InfoCard } from '../components/InfoCard';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 export interface Student {
   id: string;
@@ -87,7 +88,7 @@ export default function WorkspaceScreen() {
   );
 
   return (
-    <SafeAreaView style={styles.safeArea}>
+    <SafeAreaProvider style={styles.safeArea}>
       <StatusBar barStyle="dark-content" />
       <FlatList
         data={filteredStudents}
@@ -121,7 +122,7 @@ export default function WorkspaceScreen() {
         contentContainerStyle={styles.scrollListContent}
         showsVerticalScrollIndicator={false}
       />
-    </SafeAreaView>
+    </SafeAreaProvider>
   );
 }
 
